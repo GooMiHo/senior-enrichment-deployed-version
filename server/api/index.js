@@ -1,10 +1,14 @@
+'use strict'
 const router = require('express').Router()
-module.exports = router
+const studentRouter = require('./routes/student_routes')
+const campusRouter = require('./routes/campus_routes')
 
-router.use('/users', require('./users'))
-
+router.use('/students', studentRouter)
+router.use('/campuses', campusRouter)
 router.use((req, res, next) => {
-  const error = new Error('Not Found')
-  error.status = 404
-  next(error)
+  const err = new Error('API route not found!')
+  err.status = 404
+  next(err)
 })
+
+module.exports = router
