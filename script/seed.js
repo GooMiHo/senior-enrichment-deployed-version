@@ -1,6 +1,6 @@
 'use strict'
 
-const db = require('../server/db/models/')
+const db = require('../server/db/')
 const {Campus, Student} = require('../server/db/models/')
 
 async function seed() {
